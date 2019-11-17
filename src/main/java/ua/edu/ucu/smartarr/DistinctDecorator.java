@@ -1,9 +1,6 @@
 package ua.edu.ucu.smartarr;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 // Remove duplicates from SmartArray. Use method equals() to compare objects
 public class DistinctDecorator extends SmartArrayDecorator {
@@ -27,11 +24,15 @@ public class DistinctDecorator extends SmartArrayDecorator {
     @Override
     public Object[] toArray() 
     {
-        //curr_super.toArray();
-        //Method distinct() from StreamAPI uses equals() to compare items.
+        return Arrays.stream(super.toArray()).distinct().toArray();
+        // Same function but with list conversion:
         // return Arrays.asList(super.toArray()).stream().distinct()
         // .collect(Collectors.toList()).toArray();
-        return new HashSet<Object>(Arrays.asList(super.toArray())).toArray();
+        
+        //Same function, but with HashSet:
+        // HashSet<Object> studentSet = new 
+        //                LinkedHashSet<Object>(Arrays.asList(super.toArray()));
+
     }
 
 }

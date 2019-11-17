@@ -78,9 +78,6 @@ public class SmartArrayApp {
         
         Object[] result = studentArr.toArray();
         String[] finRes = Arrays.copyOf(result, result.length, String[].class);
-        for (String string : finRes) {
-            System.out.printf("name: %s\n", string);
-        }
         return finRes;
         
         // Hint: to convert Object[] to String[] - use the following code
